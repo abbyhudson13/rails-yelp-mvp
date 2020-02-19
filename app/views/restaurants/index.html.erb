@@ -1,6 +1,11 @@
+<div class="container">
+<h1>Great restaurants in Berlin</h1>
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant[:name] %> (<%= restaurant[:address] %>)</li>
-    <li><%= restaurant.reviews %></li>
+
+    <li><%= link_to(restaurant.name, restaurant_path(restaurant)) %> (<%=restaurant.address%>) </li>
   <% end %>
 </ul>
+<%= link_to "Add a new restaurant", new_restaurant_path(@restaurant), :class => "btn btn-primary" %>
+
+</div>
